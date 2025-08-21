@@ -17,6 +17,7 @@ export class OnlyChartJsPieComponent implements AfterViewInit {
   // Tracks whether the tooltip is currently hovered by the mouse
   tooltipHovered = false;
 
+
   // Stores the data and position for the external tooltip
   // If null, tooltip is hidden
   tooltipData: {
@@ -33,6 +34,13 @@ export class OnlyChartJsPieComponent implements AfterViewInit {
   // Marked readonly for performance and clarity
   readonly pieChartLabels = ['Download Sales', 'In Store Sales', 'Mail Sales'];
   readonly pieChartDatasets = [{ data: [300, 500, 100] }];
+
+  // Secondary dataset for extra tooltip rows (not shown in chart)
+  readonly extraTooltipRows = [
+    { label: 'Total Sales', value: '900' },
+    { label: 'Region', value: 'Global' },
+    { label: 'Year', value: '2025' }
+  ];
 
   // Injects Angular's ChangeDetectorRef for manual change detection
   constructor(private cdr: ChangeDetectorRef) {}
@@ -85,10 +93,13 @@ export class OnlyChartJsPieComponent implements AfterViewInit {
     // If there are data points to show in the tooltip
     if (tooltipModel.dataPoints?.length) {
       // Map Chart.js data points to our tooltip format
-      const data = tooltipModel.dataPoints.map((point: any) => ({
+      const chartDataRows = tooltipModel.dataPoints.map((point: any) => ({
         label: point.label, // Label for each segment
         value: point.formattedValue, // Value for each segment
       }));
+
+      // Merge chart data rows with extra tooltip rows
+      const data = [...chartDataRows, ...this.extraTooltipRows];
 
       // Only update tooltip if position has changed (prevents unnecessary change detection)
       if (
@@ -99,7 +110,7 @@ export class OnlyChartJsPieComponent implements AfterViewInit {
         // Set tooltip data for template rendering
         this.tooltipData = {
           title: tooltipModel.title, // Tooltip title
-          data, // Tooltip data rows
+          data, // Tooltip data rows (chart + extra)
           x: tooltipModel.caretX, // X position (pixels)
           y: tooltipModel.caretY, // Y position (pixels)
         };

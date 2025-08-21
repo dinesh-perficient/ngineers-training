@@ -23,7 +23,7 @@
 					<td>{{ item.label }}</td>
 					<td>{{ item.value }}</td>
 					<td>
-						<button (click)="onTooltipButtonClick(item.label)">Go</button>
+						<button (click)="onTooltipButtonClick(item.value)">View {{item.label}}</button>
 					</td>
 				</tr>
 			</table>
