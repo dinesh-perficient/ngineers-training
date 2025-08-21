@@ -1,0 +1,21 @@
+// Center the chart container on the page
+.chart-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 60vh;
+}
+
+// Make the canvas larger
+#pieChartCanvas {
+	width: 600px !important;
+	height: 600px !important;
+	display: block;
+	margin: 0 auto;
+}
+
+// Style the tooltip for better visibility
+.external-tooltip {
+	min-width: 180px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}

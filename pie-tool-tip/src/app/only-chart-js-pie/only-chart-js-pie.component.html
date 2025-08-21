@@ -1,29 +1,32 @@
-<div style="position: relative">
-	<canvas id="pieChartCanvas" #pieChartCanvas></canvas>
+<div class="chart-container">
+	<div style="position: relative;">
+		<canvas id="pieChartCanvas" #pieChartCanvas></canvas>
 
-	<div
-		*ngIf="tooltipData"
-		[ngStyle]="{
-			position: 'absolute',
-			left: tooltipData.x + 'px',
-			top: tooltipData.y + 'px',
-			background: '#fff',
-			border: '1px solid #ccc',
-			padding: '10px',
-			zIndex: 1000
-		}"
-		(mouseenter)="onTooltipMouseEnter()"
-		(mouseleave)="onTooltipMouseLeave()"
-	>
-		<strong>Table of Contents</strong>
-		<table>
-			<tr *ngFor="let item of tooltipData.data">
-				<td>{{ item.label }}</td>
-				<td>{{ item.value }}</td>
-				<td>
-					<button (click)="onTooltipButtonClick(item.label)">Go</button>
-				</td>
-			</tr>
-		</table>
+		<div
+			*ngIf="tooltipData"
+			class="external-tooltip"
+			[ngStyle]="{
+				position: 'absolute',
+				left: tooltipData.x + 'px',
+				top: tooltipData.y + 'px',
+				background: '#fff',
+				border: '1px solid #ccc',
+				padding: '10px',
+				zIndex: 1000
+			}"
+			(mouseenter)="onTooltipMouseEnter()"
+			(mouseleave)="onTooltipMouseLeave()"
+		>
+			<strong>Table of Contents</strong>
+			<table>
+				<tr *ngFor="let item of tooltipData.data">
+					<td>{{ item.label }}</td>
+					<td>{{ item.value }}</td>
+					<td>
+						<button (click)="onTooltipButtonClick(item.label)">Go</button>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </div>
