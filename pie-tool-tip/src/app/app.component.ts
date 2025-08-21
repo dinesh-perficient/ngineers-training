@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PieComponent } from './pie/pie.component';
+import { OnlyChartJsPieComponent } from './only-chart-js-pie/only-chart-js-pie.component';
+/* import { PieComponent } from './pie/pie.component'; */
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, PieComponent],
+  imports: [RouterOutlet, OnlyChartJsPieComponent, /* PieComponent */],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/* import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PieComponent } from './pie.component';
 
@@ -21,3 +21,4 @@ describe('PieComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+ */

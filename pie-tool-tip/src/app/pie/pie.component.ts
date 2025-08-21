@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+/* import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectorRef } from '@angular/core';
 import type { ChartOptions } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
@@ -81,4 +81,4 @@ import { BaseChartDirective } from 'ng2-charts';
       this.tooltipData = null;
       this.cdr.detectChanges();
     }
-  }
+  } */
